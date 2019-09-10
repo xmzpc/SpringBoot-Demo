@@ -1,6 +1,7 @@
 package com.xmzpc.demo.web;
 
 import com.xmzpc.demo.common.result.Result;
+import com.xmzpc.demo.convert.UserConvert;
 import com.xmzpc.demo.dto.UserDTO;
 import com.xmzpc.demo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,6 @@ public class HelloController {
     @ResponseBody
     public Result test(){
         List<UserDTO> userDtos = userService.selectAll();
-        return Result.success(userDtos);
+        return Result.success(UserConvert.USER.convertList(userDtos));
     }
 }

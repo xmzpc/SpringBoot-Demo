@@ -3,6 +3,7 @@ package com.xmzpc.demo.service.impl;
 import com.xmzpc.demo.dao.UserMapper;
 import com.xmzpc.demo.dto.UserDTO;
 import com.xmzpc.demo.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
