@@ -16,7 +16,7 @@ spring:
 #mybatis配置环境
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
-  type-aliases-package: com.xmzpc.demo.do
+  type-aliases-package: com.xmzpc.demo.dto
 
 #显示sql
 logging:
