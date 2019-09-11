@@ -13,3 +13,7 @@
 **启动：**
 
 - 修改 application-dev.yml中Mysql 账号密码，sql包中有Demo中用到的简单建库语句（demo_sm.sql）。
+
+**运行**
+
+- 测试HelloWorld：http://localhost:8080/demo/test

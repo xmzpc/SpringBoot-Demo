@@ -2,6 +2,7 @@ package com.xmzpc.demo.web;
 
 import com.xmzpc.demo.common.redis.UserKey;
 import com.xmzpc.demo.common.result.Result;
+import com.xmzpc.demo.config.rabbitmq.RabbitMQSender;
 import com.xmzpc.demo.convert.UserConvert;
 import com.xmzpc.demo.dto.UserDTO;
 import com.xmzpc.demo.service.RedisService;
@@ -31,6 +32,8 @@ public class HelloController {
     @Autowired
     private RedisService redisService;
 
+    @Autowired
+    RabbitMQSender sender;
 
     @SuppressWarnings("unchecked")
     @RequestMapping(value = "/redis/test", method = RequestMethod.GET)
@@ -45,5 +48,18 @@ public class HelloController {
         return Result.success(UserConvert.USER.convertList(userDTOS));
     }
 
+    @RequestMapping("/mq/direct")
+    @ResponseBody
+    public Result testDirect() {
+		sender.sendDirect("hello,direct");
+        return Result.success("hello,direct");
+    }
+
+    @RequestMapping("/mq/topic")
+    @ResponseBody
+    public Result testTopic() {
+        sender.sendTopic("hello,topic");
+        return Result.success("hello,topic");
+    }
 
 }
